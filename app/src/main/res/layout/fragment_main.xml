@@ -8,11 +8,12 @@
 
         <variable
             name="vm"
-            type="com.amier.testmagangandroid.main.MainViewModel" />
+            type="com.amier.testmagangandroid.main.MainFragment" />
     </data>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMain"
+        android:id="@+id/rvRepo"
+        app:mainList="@{vm.list}"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </layout>
