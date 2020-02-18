@@ -1,4 +1,6 @@
 package com.amier.testmagangandroid.model
 
-class MainData {
-}
+data class MainData(
+    var caption:String,
+    var thumbnail:String,
+    var image:String)
