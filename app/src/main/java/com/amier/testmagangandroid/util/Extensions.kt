@@ -2,6 +2,7 @@ package com.amier.kotlinmvvmgithubapp.util
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import androidx.lifecycle.MutableLiveData
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.RequestCreator
 
@@ -13,12 +14,18 @@ fun ImageView.load(path:String,request:(RequestCreator) ->RequestCreator){
     request(picasso.load(path)).into(this)
 }
 
-@BindingAdapter("imageUrl")
+@BindingAdapter("app:imageUrl")
 fun loadImage(view: ImageView,url:String?){
     if (url!=null){
         view.load(url){requestCreator ->
             requestCreator.fit().centerCrop()
         }
     }
+}
+
+operator fun <T> MutableLiveData<ArrayList<T>>.plusAssign(values: List<T>) {
+    val value = this.value ?: arrayListOf()
+    value.addAll(values)
+    this.value = value
 }
 
