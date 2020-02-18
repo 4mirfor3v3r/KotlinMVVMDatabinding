@@ -41,12 +41,12 @@ class MainFragment : Fragment() {
 //        rvRepo.layoutManager = StaggeredGridLayoutManager(3,LinearLayoutManager.VERTICAL)
 //        rvRepo.adapter = MainRVAdapter(mContext, dummy)
         viewModel.setList().observe(viewLifecycleOwner, Observer {
-//            showRecycler(it)
+            showRecycler(it)
         })
     }
-//    fun showRecycler(listArray:ArrayList<MainData>){
-//        rvRepo.adapter = MainRVAdapter(mContext,listArray)
-//    }
+    fun showRecycler(listArray:ArrayList<MainData>){
+        rvRepo.adapter = MainRVAdapter(mContext,listArray)
+    }
 
 //    DUMMY DATA
     val dummy:ArrayList<MainData> = arrayListOf(
