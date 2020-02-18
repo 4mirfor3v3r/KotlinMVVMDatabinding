@@ -1,7 +1,5 @@
 package com.amier.testmagangandroid.main
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.amier.testmagangandroid.api.NetworkConfig
@@ -10,19 +8,18 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainViewModel(): ViewModel(){
+class MainViewModel : ViewModel(){
     private var data = MutableLiveData<MainData>()
     private var status = MutableLiveData<Boolean>()
     private var mutableList = MutableLiveData<ArrayList<MainData>>()
 
     init {
-        getData(){
+        getData {
             mutableList = it
-
         }
     }
 
-    fun getData(callback: (MutableLiveData<ArrayList<MainData>>) ->Unit) {
+    private fun getData(callback: (MutableLiveData<ArrayList<MainData>>) ->Unit) {
         status.value = true
         NetworkConfig().api().data().enqueue(object : Callback<ArrayList<MainData>> {
             override fun onFailure(call: Call<ArrayList<MainData>>, t: Throwable) {

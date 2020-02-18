@@ -1,4 +1,4 @@
-package com.amier.kotlinmvvmgithubapp.util
+package com.amier.testmagangandroid.util
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
@@ -12,7 +12,8 @@ val picasso: Picasso
     get() = Picasso.get()
 
 fun ImageView.load(path:String,request:(RequestCreator) ->RequestCreator){
-    request(picasso
+    request(
+        picasso
         .load(path)
         .placeholder(R.drawable.image_placeholder)
         .error(R.drawable.ic_sentiment_dissatisfied_black_24dp)
