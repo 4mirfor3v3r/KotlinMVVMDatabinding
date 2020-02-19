@@ -20,7 +20,6 @@ fun ImageView.load(path:String,request:(RequestCreator) ->RequestCreator){
     )
         .into(this)
 }
-
 @BindingAdapter("app:imageUrl")
 fun loadImage(view: ImageView,url:String?){
     if (url!=null){

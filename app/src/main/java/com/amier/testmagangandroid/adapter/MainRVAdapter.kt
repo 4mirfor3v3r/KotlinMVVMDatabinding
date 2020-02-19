@@ -1,5 +1,7 @@
 package com.amier.testmagangandroid.adapter
 
+import android.app.Activity
+import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -11,8 +13,13 @@ import com.amier.testmagangandroid.databinding.ItemMainBinding
 import com.amier.testmagangandroid.detail.DetailActivity
 import com.amier.testmagangandroid.main.MainActionListener
 import com.amier.testmagangandroid.model.MainData
+import kotlinx.android.synthetic.main.item_main.view.*
 
-class MainRVAdapter(val context: Context, private var list: ArrayList<MainData>): RecyclerView.Adapter<MainRVAdapter.Holder>() {
+class MainRVAdapter(
+    val activity: Activity,
+    val context: Context,
+    private var list: ArrayList<MainData>
+) : RecyclerView.Adapter<MainRVAdapter.Holder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val itemMainRvBinding: ItemMainBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),
             R.layout.item_main,parent,false)
@@ -45,8 +52,13 @@ class MainRVAdapter(val context: Context, private var list: ArrayList<MainData>)
             override fun onClickItem() {
                 val intent = Intent(context, DetailActivity::class.java)
                 intent.putExtra("data",data)
+                val options = ActivityOptions.makeSceneTransitionAnimation(
+                    activity,
+                    holder.itemView.cvItemMain,
+                    "img"
+                ).toBundle()
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                context.startActivity(intent)
+                context.startActivity(intent, options)
             }
         }
         holder.bindRows(data, actionListener)

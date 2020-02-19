@@ -12,12 +12,21 @@
             type="com.amier.testmagangandroid.main.MainActionListener" />
     </data>
 
-    <ImageView
-        android:onClick="@{() -> action.onClickItem()}"
-        app:imageUrl="@{mainData.thumbnail}"
-        android:src="@mipmap/ic_launcher"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvItemMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="6dp"
-        android:layout_width="120dp"
-        android:layout_height="120dp"/>
+        android:elevation="1dp"
+        android:transitionName="img"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="1dp">
 
+        <ImageView
+            android:onClick="@{() -> action.onClickItem()}"
+            app:imageUrl="@{mainData.thumbnail}"
+            android:src="@mipmap/ic_launcher"
+            android:layout_width="120dp"
+            android:layout_height="120dp"/>
+    </androidx.cardview.widget.CardView>
 </layout>

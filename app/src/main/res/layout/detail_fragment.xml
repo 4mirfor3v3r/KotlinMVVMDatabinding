@@ -13,19 +13,38 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageView
-            android:id="@+id/ivDetailFragment"
-            app:imageUrl="@{vm.data.image}"
-            tools:src="@mipmap/ic_launcher"
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="200dp" />
-        <TextView
-            android:id="@+id/tvDetailFragment"
-            android:text="@{vm.data.caption}"
-            android:layout_below="@id/ivDetailFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Suaenfiwninrvgirnvfnvnin"/>
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:elevation="3dp"
+            android:transitionName="img"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="3dp">
+
+            <ImageView
+                android:id="@+id/ivDetailFragment"
+                app:imageUrl="@{vm.data.image}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginBottom="12dp"
+                android:id="@+id/tvDetailFragment"
+                android:text="@{vm.data.caption}"
+                android:textColor="#FFB300"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_below="@id/ivDetailFragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Suaenfiwninrvgirnvfnvnin"/>
+
+        </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
 </layout>

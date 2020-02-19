@@ -35,6 +35,6 @@ class MainFragment : Fragment() {
         })
     }
     private fun showRecycler(listArray:ArrayList<MainData>){
-        rvRepo.adapter = MainRVAdapter(mContext,listArray)
+        rvRepo.adapter = activity?.let { MainRVAdapter(it, mContext, listArray) }
     }
 }
